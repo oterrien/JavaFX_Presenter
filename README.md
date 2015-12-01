@@ -25,8 +25,8 @@ The concret view is also responsible of creating the presenter (which refers its
 The button's action is delegated to a Command instance. 
 The Command is a decorator of Consumer<ActionEvent> which delegates the execution to a list of other Consumer<ActionEvent>. 
 
-The presenter is responsible to register its own method to the command. 
+The presenter is responsible of registering its own method to the command. 
 
 Thus, presenter's methods will be called when the view button will be clicked.
 
-Testing the presenter consists in created a mock of the view.
+Finally, testing the presenter consists in created a mock of the view.
