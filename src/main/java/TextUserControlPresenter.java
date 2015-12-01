@@ -20,7 +20,7 @@ public class TextUserControlPresenter extends AdtPresenter<ITextUserControlView>
                 addDelegate(this::appendTextInRes2);
     }
 
-    public void appendTextInRes1(ActionEvent e) {
+    private void appendTextInRes1(ActionEvent e) {
 
         StringBuilder sb = new StringBuilder(getView().getResult1()).
                 append("\r\n").
@@ -28,7 +28,7 @@ public class TextUserControlPresenter extends AdtPresenter<ITextUserControlView>
         getView().setResult1(sb.toString());
     }
 
-    public void appendTextInRes2(ActionEvent e) {
+    private void appendTextInRes2(ActionEvent e) {
 
         StringBuilder sb = new StringBuilder(getView().getResult2()).
                 append(";").

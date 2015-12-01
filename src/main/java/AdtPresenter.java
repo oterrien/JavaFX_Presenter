@@ -1,7 +1,7 @@
 /**
  * Created by Olivier on 01/12/2015.
  */
-public abstract class AdtPresenter<IV> {
+public abstract class AdtPresenter<IV extends IView> {
 
     private IV view;
 

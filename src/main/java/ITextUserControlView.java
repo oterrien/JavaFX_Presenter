@@ -1,5 +1,5 @@
 
-public interface ITextUserControlView {
+public interface ITextUserControlView extends IView{
 
     String getText();
 
