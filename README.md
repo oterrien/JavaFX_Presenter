@@ -1,6 +1,6 @@
 # JavaFX_Presenter
 
-Show how implements MVP pattern with JavaFX and how testing it
+Show how implementing MVP pattern with JavaFX and how testing it
 
 The class diagram is
 
