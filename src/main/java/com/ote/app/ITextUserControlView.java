@@ -1,7 +1,9 @@
+package com.ote.app;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public interface ITextUserControlView extends IView{
+public interface ITextUserControlView extends IView {
 
     String getText();
 

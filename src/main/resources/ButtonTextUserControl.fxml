@@ -5,11 +5,12 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
-<fx:root type="javafx.scene.layout.VBox"
+<VBox
          maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
          prefHeight="400.0" prefWidth="600.0"
          xmlns="http://javafx.com/javafx/8.0.40"
-         xmlns:fx="http://javafx.com/fxml/1">
+         xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.ote.app.impl.TextUserControlView">
     <HBox>
         <children>
             <TextField fx:id="text" HBox.hgrow="SOMETIMES">
@@ -22,4 +23,4 @@
     </HBox>
     <TextArea fx:id="result1" editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
     <TextArea fx:id="result2" editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
-</fx:root>
+</VBox>

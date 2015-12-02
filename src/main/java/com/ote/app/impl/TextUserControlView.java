@@ -1,18 +1,17 @@
+package com.ote.app.impl;
+
+import com.ote.app.ITextUserControlView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 
 /**
  * Created by Olivier on 30/11/2015.
  */
 @SuppressWarnings("UnusedDeclaration")
-public class TextUserControlViewImpl extends VBox implements ITextUserControlView {
+public class TextUserControlView implements ITextUserControlView {
 
     /**
      * <TextField fx:id="text" HBox.hgrow="SOMETIMES">
@@ -52,18 +51,11 @@ public class TextUserControlViewImpl extends VBox implements ITextUserControlVie
     /**
      * The presenter
      */
-    private IPresenter<ITextUserControlView> presenter;
+    private TextUserControlPresenter presenter;
 
-    public TextUserControlViewImpl() {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("ButtonTextUserControl.fxml"));
-            fxmlLoader.setController(this);
-            fxmlLoader.setRoot(this);
-            fxmlLoader.load();
-            presenter = new TextUserControlPresenter(this);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    @FXML
+    public void initialize() {
+        presenter = new TextUserControlPresenter(this);
     }
 
     @Override

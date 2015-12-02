@@ -1,3 +1,7 @@
+package com.ote.app;
+
+import com.ote.app.ITextUserControlView;
+import com.ote.app.impl.TextUserControlPresenter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -10,7 +14,7 @@ public class TextUserControlViewMock implements ITextUserControlView {
     private String result1;
     private String result2;
     private EventHandler<ActionEvent> buttonCommand;
-    private IPresenter<ITextUserControlView> presenter;
+    private TextUserControlPresenter presenter;
 
     public TextUserControlViewMock() {
         presenter = new TextUserControlPresenter(this);

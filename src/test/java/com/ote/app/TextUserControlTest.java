@@ -1,3 +1,4 @@
+package com.ote.app;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
