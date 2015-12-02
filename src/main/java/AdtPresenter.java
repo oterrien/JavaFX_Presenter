@@ -3,7 +3,7 @@ import javafx.fxml.Initializable;
 /**
  * Created by Olivier on 01/12/2015.
  */
-public abstract class AdtPresenter<IV extends IView>  {
+public abstract class AdtPresenter<IV extends IView> implements IPresenter<IV>  {
 
     private IV view;
 

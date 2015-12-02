@@ -49,13 +49,18 @@ public class TextUserControlViewImpl extends VBox implements ITextUserControlVie
      */
     private EventHandler<ActionEvent> buttonAction;
 
+    /**
+     * The presenter
+     */
+    private IPresenter<ITextUserControlView> presenter;
+
     public TextUserControlViewImpl() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("ButtonTextUserControl.fxml"));
             fxmlLoader.setController(this);
             fxmlLoader.setRoot(this);
             fxmlLoader.load();
-            new TextUserControlPresenter(this);
+            presenter = new TextUserControlPresenter(this);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

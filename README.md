@@ -8,25 +8,27 @@ The class diagram is
 
 The view interface provides the intention of the view.
 
-For example:
-- getting and setting text
-- getting and setting result1
-- getting and setting result2
-- getting command for the Add button
+For the given examplen that means:
+* getting and setting text
+* getting and setting result1
+* getting and setting result2
+* getting and setting event handler for the Add button
 
 The concret view is created from FXML file.
-Each field of the control is defined with @FXML.
-The action to be triggered when clicking on the button is also a method and is prefixed by @FXML.
+Each field of the control is defined with **@FXML**.
+The action to be triggered when the button is clicked is also a method and is prefixed by **@FXML**.
 
-The concret view implements the interface by providing a mapping between @FXML fields and getting/setting methods. 
+The concret view implements the interface by providing a mapping between **@FXML** fields and getting/setting methods. 
+And the triggered method does just call the event handler.
 
 The concret view is also responsible of creating the presenter (which refers itself as view).
 
-The button's action is delegated to a Command instance. 
-The Command is a decorator of Consumer<ActionEvent> which delegates the execution to a list of other Consumer<ActionEvent>. 
+That is the important point. The presenter acts upon the model and the view. It retrieves data from repositories (the model), and formats it for display in the view.
 
-The presenter is responsible of registering its own method to the command. 
+For that purpose, the presenter should be able to call the view in order to set data and retrieve data once updated by user. That is why, the presenter contains a reference of the view. 
+But it should also provide action to be done when view's event handlers are called. 
 
-Thus, presenter's methods will be called when the view button will be clicked.
+When a user clicks on button "Add", the method which is bound with FXML is called. This method call the EventHandler which has been set by the presenter. 
+In other words, the presenter is responsible of registering its own method to the view's EventHandler. 
 
-Finally, testing the presenter consists in created a mock of the view.
+Finally, testing the presenter just consists in creating a mock of the view.

@@ -10,9 +10,10 @@ public class TextUserControlViewMock implements ITextUserControlView {
     private String result1;
     private String result2;
     private EventHandler<ActionEvent> buttonCommand;
+    private IPresenter<ITextUserControlView> presenter;
 
     public TextUserControlViewMock() {
-        new TextUserControlPresenter(this);
+        presenter = new TextUserControlPresenter(this);
     }
 
     @Override
