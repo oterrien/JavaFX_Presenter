@@ -1,3 +1,6 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
 /**
  * Created by Olivier on 01/12/2015.
  */
@@ -6,7 +9,7 @@ public class TextUserControlViewMock implements ITextUserControlView {
     private String text;
     private String result1;
     private String result2;
-    private Command buttonCommand = new Command();
+    private EventHandler<ActionEvent> buttonCommand;
 
     public TextUserControlViewMock() {
         new TextUserControlPresenter(this);
@@ -43,7 +46,12 @@ public class TextUserControlViewMock implements ITextUserControlView {
     }
 
     @Override
-    public Command getButtonCommand() {
+    public EventHandler<ActionEvent> getButtonAction() {
         return buttonCommand;
+    }
+
+    @Override
+    public void setButtonAction(EventHandler<ActionEvent> eventHandler) {
+        this.buttonCommand = eventHandler;
     }
 }

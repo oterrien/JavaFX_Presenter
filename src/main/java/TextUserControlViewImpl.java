@@ -1,4 +1,5 @@
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextArea;
@@ -39,27 +40,25 @@ public class TextUserControlViewImpl extends VBox implements ITextUserControlVie
      */
     @FXML
     public void executeAdd(ActionEvent event) {
-        getButtonCommand().accept(event);
+        if (buttonAction != null)
+            buttonAction.handle(event);
     }
 
     /**
      * The command aims to handle the "executeAdd" action
      */
-    private Command buttonCommand = new Command();
+    private EventHandler<ActionEvent> buttonAction;
 
-    public TextUserControlViewImpl() throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("ButtonTextUserControl.fxml"));
-        fxmlLoader.setController(this);
-        fxmlLoader.setRoot(this);
-        fxmlLoader.load();
-
-        new TextUserControlPresenter(this);
-    }
-
-    @Override
-    public Command getButtonCommand() {
-        return buttonCommand;
+    public TextUserControlViewImpl() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(ClassLoader.getSystemResource("ButtonTextUserControl.fxml"));
+            fxmlLoader.setController(this);
+            fxmlLoader.setRoot(this);
+            fxmlLoader.load();
+            new TextUserControlPresenter(this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -69,10 +68,7 @@ public class TextUserControlViewImpl extends VBox implements ITextUserControlVie
 
     @Override
     public void setText(String text) {
-        if (this.text.getText().isEmpty())
-            this.text.setText(text);
-        else
-            this.text.appendText(text);
+        this.text.setText(text);
     }
 
     @Override
@@ -95,5 +91,13 @@ public class TextUserControlViewImpl extends VBox implements ITextUserControlVie
         this.result2.setText(text);
     }
 
+    @Override
+    public EventHandler<ActionEvent> getButtonAction() {
+        return buttonAction;
+    }
 
+    @Override
+    public void setButtonAction(EventHandler<ActionEvent> eventHandler) {
+        this.buttonAction = eventHandler;
+    }
 }

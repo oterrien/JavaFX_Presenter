@@ -9,18 +9,21 @@ public class TextUserControlPresenter extends AdtPresenter<ITextUserControlView>
         super(view);
     }
 
-    @Override
     protected void init() {
 
         this.getView().setResult1("result1");
         this.getView().setResult2("result2");
+        this.getView().setText("test");
 
-        this.getView().getButtonCommand().
-                addDelegate(this::appendTextInRes1).
-                addDelegate(this::appendTextInRes2);
+        this.getView().setButtonAction(this::buttonAction);
     }
 
-    private void appendTextInRes1(ActionEvent e) {
+    private void buttonAction(ActionEvent actionEvent) {
+        appendTextInRes1();
+        appendTextInRes2();
+    }
+
+    private void appendTextInRes1() {
 
         StringBuilder sb = new StringBuilder(getView().getResult1()).
                 append("\r\n").
@@ -28,7 +31,7 @@ public class TextUserControlPresenter extends AdtPresenter<ITextUserControlView>
         getView().setResult1(sb.toString());
     }
 
-    private void appendTextInRes2(ActionEvent e) {
+    private void appendTextInRes2() {
 
         StringBuilder sb = new StringBuilder(getView().getResult2()).
                 append(";").

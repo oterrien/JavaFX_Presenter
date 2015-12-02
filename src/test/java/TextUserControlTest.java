@@ -15,7 +15,9 @@ public class TextUserControlTest {
         viewMock.setText("toto");
         viewMock.setResult1("result1");
         viewMock.setResult2("result2");
-        viewMock.getButtonCommand().accept(null);
+
+        // Call action
+        viewMock.getButtonAction().handle(null);
 
         Assert.assertThat("bad result", viewMock.getResult1(), Matchers.equalTo("result1\r\ntoto"));
         Assert.assertThat("bad result", viewMock.getResult2(), Matchers.equalTo("result2;toto"));

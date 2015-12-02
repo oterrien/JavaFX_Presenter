@@ -1,5 +1,7 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
-public interface ITextUserControlView extends IView{
+public interface ITextUserControlView {
 
     String getText();
 
@@ -13,5 +15,7 @@ public interface ITextUserControlView extends IView{
 
     void setResult2(String text);
 
-    Command getButtonCommand();
+    EventHandler<ActionEvent> getButtonAction();
+
+    void setButtonAction(EventHandler<ActionEvent> eventHandler);
 }
