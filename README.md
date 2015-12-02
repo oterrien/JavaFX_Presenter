@@ -4,7 +4,7 @@ Show how implements MVP pattern with JavaFX and how testing it
 
 The class diagram is
 
-![Class diagram](https://github.com/oterrien/JavaFX_Presenter/blob/master/class.diag.png)
+![Class diagram](https://github.com/oterrien/JavaFX_Presenter/blob/master/class.diag.jpg)
 
 The view interface provides the intention of the view.
 

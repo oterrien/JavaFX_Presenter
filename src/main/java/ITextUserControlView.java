@@ -1,7 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public interface ITextUserControlView {
+public interface ITextUserControlView extends IView{
 
     String getText();
 
