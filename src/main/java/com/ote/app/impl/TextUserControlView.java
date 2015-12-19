@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import javax.swing.plaf.synth.Region;
+
 /**
  * Created by Olivier on 30/11/2015.
  */
@@ -97,4 +99,6 @@ public class TextUserControlView implements ITextUserControlView {
     public void setButtonAction(EventHandler<ActionEvent> eventHandler) {
         this.buttonAction = eventHandler;
     }
+
+
 }
